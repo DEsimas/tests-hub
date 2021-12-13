@@ -1,27 +1,40 @@
 {
   "name": "tests-hub",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
+  "version": "1.1.0",
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "react",
+    "react-router",
+    "tests",
+    "gh-pages"
+  ],
+  "homepage": "https://desimas.github.io/tests-hub/",
+  "bugs": {
+    "url": "https://github.com/DEsimas/tests-hub/issues",
+    "email": "simasuh@gmail.com"
+  },
+  "license": "ISC",
+  "author": {
+    "name": "Serafim Sukharev",
+    "email": "simasuh@gmail.com"
+  },
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DEsimas/tests-hub"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "react-scripts": "^4.0.3"
   },
   "browserslist": {
     "production": [
@@ -34,5 +47,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "private": false
 }
