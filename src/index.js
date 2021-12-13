@@ -1,11 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import TestsHub from './Components/Tests-hub/TestsHub';
+import AccentTester from './Components/Accent-tester/AccentTester';
+import TypingTester from './Components/Typing-tester/TypingTester';
+import ReactionTester from './Components/Reaction-tester/ReactionTester';
+
 import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>hello world</h1>
+    <TestsHub/>
+    <AccentTester/>
+    <TypingTester/>
+    <ReactionTester/>
   </React.StrictMode>,
   document.getElementById('root')
 );
