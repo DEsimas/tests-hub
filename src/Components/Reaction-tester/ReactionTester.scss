@@ -60,26 +60,29 @@
         }
     }
     
-    /*mobile styles*/
+    /*mobile*/
     @media screen and (max-width: 426px) {
-        .buttons {
+        &-Buttons {
             height: 100%;
+
+            &-Button {
+                font-size: 32px;
+                margin: 0 20px;
+                padding: 90px 10px;
+            }
         }
-    
-        .btn {
-            font-size: 32px;
-            margin: 0 20px;
-            padding: 90px 10px;
-        }
-    
-        .info-window {
-            font-size: 32px;
-            margin: 0 10px;
-        }
-    
-        .result-btn {
-            font-size: 32px;
-            margin: 15px 50px;
+
+        &-ResultWindow {
+            
+            &-InfoWindow {
+                font-size: 32px;
+                margin: 0 10px;
+
+                &-Button {
+                    font-size: 32px;
+                    margin: 15px 50px;
+                }
+            }
         }
     }
 }
