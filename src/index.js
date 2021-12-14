@@ -16,7 +16,7 @@ ReactDOM.render(
         <Route path="/AccentTester" element={<AccentTester/>}/>
         <Route path="/TypingTester" element={<TypingTester/>}/>
         <Route path="/ReactionTester" element={<ReactionTester/>}/>
-        <Route path="/tests-hub" element={<TestsHub/>}/>
+        <Route path="/" element={<TestsHub/>}/>
       </Routes>
     </HashRouter>
   </React.StrictMode>,
