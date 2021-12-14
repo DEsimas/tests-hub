@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes, Link, Switch } from 'react-router-dom';
 
 import TestsHub from './Components/Tests-hub/TestsHub';
 import AccentTester from './Components/Accent-tester/AccentTester';
@@ -11,14 +11,14 @@ import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Routes>
-        <Route path="/AccentTester" element={<AccentTester/>}/>
-        <Route path="/TypingTester" element={<TypingTester/>}/>
-        <Route path="/ReactionTester" element={<ReactionTester/>}/>
-        <Route path="/" element={<TestsHub/>}/>
-      </Routes>
-    </BrowserRouter>
+    <HashRouter>
+      <Switch>
+        <Route exact path="/"><TestsHub/></Route>
+        <Route path="/AccentTester"><AccentTester/></Route>
+        <Route path="/TypingTester"><TypingTester/></Route>
+        <Route path="/ReactionTester"><ReactionTester/></Route>
+      </Switch>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
