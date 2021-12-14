@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './TypingTester.scss';
+
 export default function TypingTester() {
 
     return (

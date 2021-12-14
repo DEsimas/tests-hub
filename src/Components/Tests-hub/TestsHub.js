@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './TestsHub.scss';
+
 export default function TestsHub() {
 
     return (

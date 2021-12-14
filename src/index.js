@@ -6,7 +6,7 @@ import AccentTester from './Components/Accent-tester/AccentTester';
 import TypingTester from './Components/Typing-tester/TypingTester';
 import ReactionTester from './Components/Reaction-tester/ReactionTester';
 
-import './index.css';
+import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
