@@ -1,5 +1,79 @@
 .ReactionTester {
-    h1 {
-        color: green;
+    font-family: 'Lato', sans-serif;
+    color: rgb(61, 61, 61);
+    font-size: 50px;
+    
+    .red {
+        background-color: red !important;
+    }
+
+    .buttons {
+        height: 70%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .btn {
+        background-color: rgb(0, 204, 0);
+        padding: 80px 120px;
+        border-radius: 20px;
+        text-align: center;
+    }
+    
+    .result-window {
+        background-color: rgba(0, 0, 0, 0.541);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .info-window {
+        text-align: center;
+        padding: 15px 20px;
+        margin-bottom: 10%;
+        background-color: white;
+        border: solid black 4px;
+        border-radius: 20px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .result-btn {
+        margin: 10px 20px;
+        font-size: 48px;
+        display: block;
+        border-radius: 15px;
+    }
+    
+    /*mobile styles*/
+    @media screen and (max-width: 426px) {
+        .buttons {
+            height: 100%;
+        }
+    
+        .btn {
+            font-size: 32px;
+            margin: 0 20px;
+            padding: 90px 10px;
+        }
+    
+        .info-window {
+            font-size: 32px;
+            margin: 0 10px;
+        }
+    
+        .result-btn {
+            font-size: 32px;
+            margin: 15px 50px;
+        }
     }
 }
