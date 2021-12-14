@@ -1,5 +1,7 @@
 import { useRef } from 'react';
 
+import './CameraTester.scss'
+
 export default function CameraTester() {
     const videoRef = useRef(null);
 
