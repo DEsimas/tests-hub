@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import './ReactionTester.scss';
 
@@ -11,8 +11,8 @@ export default function ReactionTester() {
         delay = Math.floor(Math.random() * (5000 - 2000) + 2000);
         begin = document.getElementsByClassName("begin")[0];
         check = document.getElementsByClassName("check")[0];
-        result = document.getElementsByClassName("result-window")[0];
-        span = document.getElementsByClassName("result-span")[0];
+        result = document.getElementsByClassName("ReactionTester-ResultWindow")[0];
+        span = document.getElementsByClassName("ReactionTester-ResultWindow-InfoWindow-Text")[0];
         span.innerHTML = "Too fast. Try again";
 
         begin.classList.remove("hidden");
@@ -44,14 +44,14 @@ export default function ReactionTester() {
     
     return (
         <div className="ReactionTester">
-            <div className="buttons">
-                <div className="btn begin" onClick={start}> Press here to start </div>
-                <div className="btn check hidden" onClick={pressed}>Hit the button when the background turns red </div>
+            <div className="ReactionTester-Buttons">
+                <div className="ReactionTester-Buttons-Button begin unselectable" onClick={start}> Press here to start </div>
+                <div className="ReactionTester-Buttons-Button check unselectable hidden" onClick={pressed}>Hit the button when the background turns red!</div>
             </div>
-            <div className="result-window hidden">
-                <div className="info-window">
-                    <span className="result-span"></span>
-                    <button className="result-btn" onClick={setDefaults}>OK</button>
+            <div className="ReactionTester-ResultWindow hidden">
+                <div className="ReactionTester-ResultWindow-InfoWindow">
+                    <span className="ReactionTester-ResultWindow-InfoWindow-Text"></span>
+                    <button className="ReactionTester-ResultWindow-InfoWindow-Button" onClick={setDefaults}>OK</button>
                 </div>
             </div>
         </div>
