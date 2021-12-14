@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, HashRouter, Route, Routes, Link, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import TestsHub from './Components/Tests-hub/TestsHub';
 import AccentTester from './Components/Accent-tester/AccentTester';
