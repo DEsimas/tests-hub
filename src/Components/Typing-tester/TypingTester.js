@@ -3,6 +3,8 @@ import React from 'react';
 export default function TypingTester() {
 
     return (
-        <h1>TypingTester</h1>
+        <div className="TypingTester">
+            <h1>TypingTester</h1>
+        </div>
     )
 }
