@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 
 import TestsHub from './Components/Tests-hub/TestsHub';
 import AccentTester from './Components/Accent-tester/AccentTester';
@@ -10,10 +11,14 @@ import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <TestsHub/>
-    <AccentTester/>
-    <TypingTester/>
-    <ReactionTester/>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/AccentTester" element={<AccentTester/>}/>
+        <Route path="/TypingTester" element={<TypingTester/>}/>
+        <Route path="/ReactionTester" element={<ReactionTester/>}/>
+        <Route path="/tests-hub" element={<TestsHub/>}/>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
