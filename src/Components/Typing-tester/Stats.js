@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Stats.scss';
+
 export default function Stats({ time, spm, wpm, setText }) {
     function onReload() {
         setText();
