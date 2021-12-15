@@ -1,15 +1,148 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import Loading from './../Loading/Loading';
+
+import Text from './Text';
+import Stats from './Stats';
 
 import loading from './../../Assets/TypingTester/loading.gif';
 
 import './TypingTester.scss';
 
+const SERVER_URL = 'http://localhost:3000/';
+
 export default function TypingTester() {
+    const [inputText, setInputText] = useState('');
+    const [text, setText] = useState(new Text('React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications. However, React is only concerned with state management and rendering that state to the DOM, so creating React applications usually requires the use of additional libraries for routing, as well as certain client-side functionality.'));
+    const [stats, setStats] = useState({});
+    const [texts, setTexts] = useState();
+
+    function onTextChanged(evt) {
+        if (evt.target.value[evt.target.value.length - 1] === '\n') {
+            evt.target.value = inputText;
+            return;
+        };
+
+        text.addChar(evt.target.value);
+
+        if (text.isCompleted) displayStats();
+
+        setInputText(evt.target.value);
+    };
+
+    function onLoadClick(e) {
+        e.preventDefault();
+
+        const file = getFile();
+        if (file) loadFile(file);
+    };
+
+    function getFile() {
+        const input = document.getElementsByClassName('TypingTester-Workplace-LoadInput')[0];
+
+        if (input.files[0] === undefined) {
+            alert('Choose file with text');
+            return null;
+        };
+
+        return input.files[0];
+    };
+
+    function loadFile(file) {
+        const reader = new FileReader();
+        reader.readAsText(file);
+
+        reader.onload = res => {
+            const text = res.target.result;
+
+            if (text.length < 10) {
+                alert('Text should be at least 10 characters long');
+                return;
+            };
+
+            if ((text.match(/\n/g) || []).length) {
+                alert("Text can't contain \'new line\' symbols");
+                return;
+            }
+
+            if ((text.match(/\t/g) || []).length) {
+                alert("Text can't contain tabs");
+                return;
+            }
+
+            let oldTexts = texts;
+            let order = 1;
+            oldTexts.forEach(el => el.title.search('Custom text ') === -1 ? null : order++);
+            oldTexts.push({ title: `Custom text ${order}`, text: text });
+
+            setTexts(oldTexts);
+            setText(new Text(text));
+
+            const textarea = document.getElementsByClassName('TypingTester-Workplace-Input')[0];
+            textarea.value = '';
+        };
+    };
+
+    function displayStats() {
+        const stats = text.getStats();
+
+        const input = document.getElementsByClassName('TypingTester-Workplace-Input')[0];
+        input.disabled = true;
+
+        const block = document.getElementsByClassName('TypingTester-Stats')[0];
+        block.classList.remove('hidden');
+        setStats(stats);
+    };   
+
+    function changeText(text) {
+        const textarea = document.getElementsByClassName('TypingTester-Workplace-Input')[0];
+        textarea.value = '';
+
+        setText(new Text(text));
+    }
+
+    function show() {
+        document.getElementsByClassName('TypingTester-Examples-ButtonShow')[0].classList.add('hidden');
+        document.getElementsByClassName('TypingTester-Examples-List')[0].classList.remove('hidden');
+        document.getElementsByClassName('TypingTester-Examples-ButtonHide')[0].classList.remove('hidden');
+    }
+
+    function hide() {
+        document.getElementsByClassName('TypingTester-Examples-ButtonShow')[0].classList.remove('hidden');
+        document.getElementsByClassName('TypingTester-Examples-List')[0].classList.add('hidden');
+        document.getElementsByClassName('TypingTester-Examples-ButtonHide')[0].classList.add('hidden');
+    }
+
+    function updText() {
+        setText(new Text(text.text));
+    }
+
+    useEffect(() => {
+        async function fetchData() {
+            const data = await fetch(SERVER_URL);
+            const texts = await data.json();
+            setTexts(texts.texts);
+        }
+        fetchData();
+    }, []);
+
+    if (!texts) return <Loading loading={loading}/>
 
     return (
-        <div className="TypingTester">
-            <Loading loading={loading}/>
+        <div className='TypingTester'>
+            <Stats time={stats.time} wpm={stats.wpm} spm={stats.spm} setText={updText}/>
+            <div className='TypingTester-Workplace'>
+                {text.getJsx()}
+                <textarea className='TypingTester-Workplace-Input' onChange={onTextChanged} placeholder='Start typing here...'/>
+                <button className='TypingTester-Workplace-LoadButton' onClick={onLoadClick} >Load text</button>
+                <input className='TypingTester-Workplace-LoadInput' accept='.txt' type='file'></input>
+            </div>
+            <div className='TypingTester-Examples'>
+                <button className='TypingTester-Examples-ButtonShow' onClick={show}> Show texts </button>
+                <button className='TypingTester-Examples-ButtonHide hidden' onClick={hide}> Hide texts </button>
+                <div className='TypingTester-Examples-List hidden' id='list'>
+                    {texts?.length ? texts.map(el => (<button key={el.title} onClick={() => changeText(el.text)} className={el.title + ' example'}>{el.title}</button>)) : ''}
+                </div>
+            </div>
         </div>
-    )
+    );
 }

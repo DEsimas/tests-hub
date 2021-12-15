@@ -61,10 +61,10 @@ class Text {
 
     getJsx() {
         return (
-            <div className="TypingTester-Text">
-                <span className="TypingTester-Text-Completed">{this.textCompleted}</span>
-                <span className="TypingTester-Text-Error">{this.textError}</span>
-                <span className="TypingTester-Text-Uncompleted">{this.textUncompleted}</span>
+            <div className="TypingTester-Workplace-Text unselectable">
+                <span className="TypingTester-Workplace-Text-Completed">{this.textCompleted}</span>
+                <span className="TypingTester-Workplace-Text-Error">{this.textError}</span>
+                <span className="TypingTester-Workplace-Text-Uncompleted">{this.textUncompleted}</span>
             </div>
         );
     };
@@ -72,10 +72,6 @@ class Text {
     getStats() {
         const time = (this.end - this.start) / 1000;
         const spm = this.length / time * 60;
-
-        console.log("time: ", time);
-        console.log("spm: ", spm);
-        console.log("wpm: ", spm / 5);
 
         return {
             time: time.toFixed(1),
