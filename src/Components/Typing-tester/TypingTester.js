@@ -38,7 +38,7 @@ export default function TypingTester() {
     };
 
     function getFile() {
-        const input = document.getElementsByClassName('TypingTester-Workplace-LoadInput')[0];
+        const input = document.getElementsByClassName('TypingTester-Workplace-Texts-LoadInput')[0];
 
         if (input.files[0] === undefined) {
             alert('Choose file with text');
@@ -78,7 +78,7 @@ export default function TypingTester() {
             setTexts(oldTexts);
             setText(new Text(text));
 
-            const textarea = document.getElementsByClassName('TypingTester-Workplace-Input')[0];
+            const textarea = document.getElementsByClassName('TypingTester-Workplace-Texts-Input')[0];
             textarea.value = '';
         };
     };
@@ -86,16 +86,16 @@ export default function TypingTester() {
     function displayStats() {
         const stats = text.getStats();
 
-        const input = document.getElementsByClassName('TypingTester-Workplace-Input')[0];
+        const input = document.getElementsByClassName('TypingTester-Workplace-Texts-Input')[0];
         input.disabled = true;
 
-        const block = document.getElementsByClassName('TypingTester-Stats')[0];
+        const block = document.getElementsByClassName('TypingTester-Workplace-Stats')[0];
         block.classList.remove('hidden');
         setStats(stats);
-    };   
+    };
 
     function changeText(text) {
-        const textarea = document.getElementsByClassName('TypingTester-Workplace-Input')[0];
+        const textarea = document.getElementsByClassName('TypingTester-Workplace-Texts-Input')[0];
         textarea.value = '';
 
         setText(new Text(text));
@@ -114,18 +114,20 @@ export default function TypingTester() {
         fetchData();
     }, []);
 
-    if (!texts) return <Loading loading={loading}/>
+    if (!texts) return <Loading loading={loading} />
 
     return (
         <div className='TypingTester'>
-            <Stats time={stats.time} wpm={stats.wpm} spm={stats.spm} setText={updText}/>
             <div className='TypingTester-Workplace'>
-                {text.getJsx()}
-                <textarea className='TypingTester-Workplace-Input' onChange={onTextChanged} placeholder='Start typing here...'/>
-                <button className='TypingTester-Workplace-LoadButton' onClick={onLoadClick} >Load text</button>
-                <input className='TypingTester-Workplace-LoadInput' accept='.txt' type='file'></input>
+                <Stats time={stats.time} wpm={stats.wpm} spm={stats.spm} setText={updText} />
+                <div className='TypingTester-Workplace-Texts'>
+                    {text.getJsx()}
+                    <textarea className='TypingTester-Workplace-Texts-Input' onChange={onTextChanged} placeholder='Start typing here...' />
+                    <button className='TypingTester-Workplace-Texts-LoadButton' onClick={onLoadClick} >Load text</button>
+                    <input className='TypingTester-Workplace-Texts-LoadInput' accept='.txt' type='file'></input>
+                </div>
+                <Examples texts={texts} changeText={changeText} />
             </div>
-            <Examples texts={texts} changeText={changeText}/>
         </div>
     );
 }
