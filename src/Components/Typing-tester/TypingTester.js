@@ -4,6 +4,7 @@ import Loading from './../Loading/Loading';
 import Text from './Text';
 import Stats from './Stats';
 import Examples from './Examples';
+import MobileWarnign from './MobileWarning';
 
 import loading from './../../Assets/TypingTester/loading.gif';
 
@@ -119,8 +120,9 @@ export default function TypingTester() {
 
     return (
         <div className='TypingTester'>
+            <MobileWarnign/>
+            <Stats time={stats.time} wpm={stats.wpm} spm={stats.spm} setText={updText} />
             <div className='TypingTester-Workplace'>
-                <Stats time={stats.time} wpm={stats.wpm} spm={stats.spm} setText={updText} />
                 <div className='TypingTester-Workplace-Texts'>
                     {text.getJsx()}
                     <textarea className='TypingTester-Workplace-Texts-Input' onChange={onTextChanged} placeholder='Start typing here...' />
