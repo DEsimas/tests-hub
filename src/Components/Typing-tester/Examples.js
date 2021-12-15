@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Examples.scss';
+
 export default function Examples({ texts, changeText }) {
     function show() {
         document.getElementsByClassName('TypingTester-Workplace-Examples-ButtonShow')[0].classList.add('hidden');
@@ -17,8 +19,8 @@ export default function Examples({ texts, changeText }) {
         <div className='TypingTester-Workplace-Examples'>
             <button className='TypingTester-Workplace-Examples-ButtonShow' onClick={show}> Show texts </button>
             <button className='TypingTester-Workplace-Examples-ButtonHide hidden' onClick={hide}> Hide texts </button>
-            <div className='TypingTester-Workplace-Examples-List hidden' id='list'>
-                {texts?.length ? texts.map(el => (<button key={el.title} onClick={() => changeText(el.text)} className={el.title + ' example'}>{el.title}</button>)) : ''}
+            <div className='TypingTester-Workplace-Examples-List hidden'>
+                {texts?.length ? texts.map(el => (<button key={el.title} onClick={() => changeText(el.text)} className={el.title + ' TypingTester-Workplace-Examples-List-Example'}>{el.title}</button>)) : ''}
             </div>
         </div>
     );
