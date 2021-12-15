@@ -7,6 +7,7 @@ import Examples from './Examples';
 
 import loading from './../../Assets/TypingTester/loading.gif';
 
+import './Text.scss';
 import './TypingTester.scss';
 
 const SERVER_URL = 'http://localhost:3000/';
