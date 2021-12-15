@@ -3,6 +3,7 @@ import Loading from './../Loading/Loading';
 
 import Text from './Text';
 import Stats from './Stats';
+import Examples from './Examples';
 
 import loading from './../../Assets/TypingTester/loading.gif';
 
@@ -100,18 +101,6 @@ export default function TypingTester() {
         setText(new Text(text));
     }
 
-    function show() {
-        document.getElementsByClassName('TypingTester-Examples-ButtonShow')[0].classList.add('hidden');
-        document.getElementsByClassName('TypingTester-Examples-List')[0].classList.remove('hidden');
-        document.getElementsByClassName('TypingTester-Examples-ButtonHide')[0].classList.remove('hidden');
-    }
-
-    function hide() {
-        document.getElementsByClassName('TypingTester-Examples-ButtonShow')[0].classList.remove('hidden');
-        document.getElementsByClassName('TypingTester-Examples-List')[0].classList.add('hidden');
-        document.getElementsByClassName('TypingTester-Examples-ButtonHide')[0].classList.add('hidden');
-    }
-
     function updText() {
         setText(new Text(text.text));
     }
@@ -136,13 +125,7 @@ export default function TypingTester() {
                 <button className='TypingTester-Workplace-LoadButton' onClick={onLoadClick} >Load text</button>
                 <input className='TypingTester-Workplace-LoadInput' accept='.txt' type='file'></input>
             </div>
-            <div className='TypingTester-Examples'>
-                <button className='TypingTester-Examples-ButtonShow' onClick={show}> Show texts </button>
-                <button className='TypingTester-Examples-ButtonHide hidden' onClick={hide}> Hide texts </button>
-                <div className='TypingTester-Examples-List hidden' id='list'>
-                    {texts?.length ? texts.map(el => (<button key={el.title} onClick={() => changeText(el.text)} className={el.title + ' example'}>{el.title}</button>)) : ''}
-                </div>
-            </div>
+            <Examples texts={texts} changeText={changeText}/>
         </div>
     );
 }
