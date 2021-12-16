@@ -1,4 +1,4 @@
-export default tests = [
+export default [
     {
         id: 1,
         name: "Accent tester",
@@ -25,6 +25,6 @@ export default tests = [
         name: "Reaction tester",
         description: "Reaction testing app ¯\\_(ツ)_/¯",
         to: "/ReactionTester/",
-        thumbnail: "https://cdn.discordapp.com/attachments/883231507349663754/917453615092867153/unknown.png"
+        thumbnail: "https://cdn.discordapp.com/attachments/883231507349663754/917451465923129454/unknown.png"
     }
 ]

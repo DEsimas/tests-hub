@@ -1,14 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+
+import tests from './Tests';
+import Test from './Test';
 
 import './TestsHub.scss';
 
 export default function TestsHub() {
-    
+
+    document.getElementsByClassName("Fallback")[0].classList.add("hidden");
+
     return (
         <div className="TestsHub">
-            <Link to="/reactiontester">go</Link>
-
+            <h1 className="TestsHub-Header">Testing apps</h1>
+            <div className='TestsHub-List'>
+                {tests.map(el => (Test(el)))}
+            </div>
         </div>
     );
 }
