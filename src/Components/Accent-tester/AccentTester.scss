@@ -61,6 +61,34 @@
         padding-bottom: 50px;
         font-size: 35px;
     }
+
+    @media screen and (min-width: 2000px) {
+
+        &-Header {
+            font-size: 100px;
+        }
+
+        &-Workplace {
+            &-Word {
+                font-size: 120px;
+
+                &-Fragment{
+
+                    &-Vowel {
+                        font-size: 120px;
+                    }
+
+                    &-Congrags {
+                        font-size: 80px;
+                    }
+                }
+            }
+        }
+
+        &-Text {
+            font-size: 60px;
+        }
+    }
     
     .correct {
         color: green;
