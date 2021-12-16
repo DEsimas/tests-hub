@@ -17,7 +17,7 @@ export default function CameraTester() {
                 video.srcObject = stream;
                 video.play();
             }).catch((err) => {
-
+                console.log(err);
             });
     }
 
