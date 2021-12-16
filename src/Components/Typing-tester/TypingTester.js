@@ -12,6 +12,7 @@ import './Text.scss';
 import './TypingTester.scss';
 
 const SERVER_URL = 'https://typing-tester-server.herokuapp.com/';
+let inputLength = 0;
 
 export default function TypingTester() {
     const [inputText, setInputText] = useState('');
@@ -24,6 +25,15 @@ export default function TypingTester() {
             evt.target.value = inputText;
             return;
         };
+
+        console.log(evt.target.value.length, inputLength)
+
+        if (evt.target.value.length > inputLength+1) {
+            evt.target.value = inputText;
+            return;
+        };
+
+        inputLength = evt.target.value.length;
 
         text.addChar(evt.target.value);
 
