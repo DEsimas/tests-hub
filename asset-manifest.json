@@ -1,21 +1,14 @@
 {
   "files": {
-    "main.css": "/tests-hub/static/css/main.c5a05ac4.chunk.css",
-    "main.js": "/tests-hub/static/js/main.41d20712.chunk.js",
-    "main.js.map": "/tests-hub/static/js/main.41d20712.chunk.js.map",
-    "runtime-main.js": "/tests-hub/static/js/runtime-main.2447e6fb.js",
-    "runtime-main.js.map": "/tests-hub/static/js/runtime-main.2447e6fb.js.map",
-    "static/js/2.c8bec574.chunk.js": "/tests-hub/static/js/2.c8bec574.chunk.js",
-    "static/js/2.c8bec574.chunk.js.map": "/tests-hub/static/js/2.c8bec574.chunk.js.map",
+    "main.css": "/tests-hub/static/css/main.860a2066.css",
+    "main.js": "/tests-hub/static/js/main.24fd0399.js",
+    "static/media/loading.gif": "/tests-hub/static/media/loading.7f01c826ccf62146e0c1.gif",
     "index.html": "/tests-hub/index.html",
-    "static/css/main.c5a05ac4.chunk.css.map": "/tests-hub/static/css/main.c5a05ac4.chunk.css.map",
-    "static/js/2.c8bec574.chunk.js.LICENSE.txt": "/tests-hub/static/js/2.c8bec574.chunk.js.LICENSE.txt",
-    "static/media/loading.7f01c826.gif": "/tests-hub/static/media/loading.7f01c826.gif"
+    "main.860a2066.css.map": "/tests-hub/static/css/main.860a2066.css.map",
+    "main.24fd0399.js.map": "/tests-hub/static/js/main.24fd0399.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.2447e6fb.js",
-    "static/js/2.c8bec574.chunk.js",
-    "static/css/main.c5a05ac4.chunk.css",
-    "static/js/main.41d20712.chunk.js"
+    "static/css/main.860a2066.css",
+    "static/js/main.24fd0399.js"
   ]
 }
