@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 import tests from './Tests';
 import Test from './Test';
@@ -7,7 +7,9 @@ import './TestsHub.scss';
 
 export default function TestsHub() {
 
-    document.getElementsByClassName("Fallback")[0].classList.add("hidden");
+    useEffect(() => {
+        document.getElementsByClassName("Fallback")[0].classList.add("hidden");
+    })
 
     return (
         <div className="TestsHub">
