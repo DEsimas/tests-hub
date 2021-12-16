@@ -89,6 +89,38 @@
             font-size: 60px;
         }
     }
+
+    @media screen and (max-width: 426px) {
+        &-Header {
+            margin-top: 60px;
+            font-size: 32px;
+        }
+
+        &-Workplace {
+            &-Word {
+                font-size: 60px;
+
+                &-Fragment{
+
+                    &-Vowel {
+                        font-size: 60px;
+                    }
+
+                    &-Congrags {
+                        font-size: 24px;
+                    }
+                }
+            }
+
+            &-Stats {
+                font-size: 40px;
+            }
+        }
+
+        &-Text {
+            font-size: 16px;
+        }
+    }
     
     .correct {
         color: green;
