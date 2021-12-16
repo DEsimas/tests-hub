@@ -26,8 +26,6 @@ export default function TypingTester() {
             return;
         };
 
-        console.log(evt.target.value.length, inputLength)
-
         if (evt.target.value.length > inputLength+1) {
             evt.target.value = inputText;
             return;
