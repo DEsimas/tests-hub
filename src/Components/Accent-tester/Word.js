@@ -85,7 +85,7 @@ export default class Word {
     }
 
     returnWrapper(fragment, index) {
-        if(this.vowels.find(el => (el === fragment))) return <button key={index} onClick={this.fragments_correct === index ? evt => this.handler(true, evt) : evt => this.handler(false, evt)} className="AccentTester-Workplace-Word-Fragment">{fragment}</button>
+        if(this.vowels.find(el => (el === fragment))) return <button key={index} onClick={this.fragments_correct === index ? evt => this.handler(true, evt) : evt => this.handler(false, evt)} className="AccentTester-Workplace-Word-Fragment AccentTester-Workplace-Word-Fragment-Vowel">{fragment}</button>
         else return <span key={index} className="AccentTester-Workplace-Word-Fragment">{fragment}</span>
     };
 
