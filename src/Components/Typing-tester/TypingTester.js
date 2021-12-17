@@ -11,7 +11,7 @@ import loading from './../../Assets/TypingTester/loading.gif';
 import './Text.scss';
 import './TypingTester.scss';
 
-const SERVER_URL = 'https://typing-tester-server.herokuapp.com/';
+const SERVER_URL = 'https://tests-hub-server.herokuapp.com/TypingTester';
 let inputLength = 0;
 
 export default function TypingTester() {
