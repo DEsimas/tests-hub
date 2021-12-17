@@ -8,7 +8,7 @@ import loading from './../../Assets/AccentTester/loading.gif';
 
 import './AccentTester.scss';
 
-const SERVER_URL = 'https://typing-tester-server.herokuapp.com/AccentTester';
+const SERVER_URL = 'https://tests-hub-server.herokuapp.com/AccentTester';
 
 export default function AccentTester() {
     const [word, setWord] = useState(undefined);

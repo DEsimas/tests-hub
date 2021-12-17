@@ -24,7 +24,7 @@ export default class Word {
         this.dictionary_length = this.dictionary.length;
         if(!this.dictionary_length) return;
         this.word_index = Math.floor(Math.random() * this.dictionary_length);
-        this.word = this.dictionary[this.word_index];
+        this.word = this.dictionary[this.word_index].word;
         this.pretty_word = this.word.toLocaleLowerCase();
     };
     
