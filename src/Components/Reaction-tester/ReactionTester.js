@@ -39,12 +39,13 @@ export default function ReactionTester() {
     }
 
     function showStats() {
-        console.log("stats");
+        document.getElementsByClassName("ReactionTester-ResultWindow")[0].classList.remove("hidden");
+        document.getElementsByClassName("ReactionTester-ResultWindow-InfoWindow-Text")[0].innerHTML = `Your reaction is ${end - begin} ms`;
     }
 
     function showTooLateMsg() {
         document.getElementsByClassName("ReactionTester-ResultWindow")[0].classList.remove("hidden");
-        document.getElementsByClassName("ReactionTester-ResultWindow-InfoWindow-Text")[0].innerHTML = "Too fast 😭. Try again"
+        document.getElementsByClassName("ReactionTester-ResultWindow-InfoWindow-Text")[0].innerHTML = "Too fast 😭. Try again";
     }
     
     return (
