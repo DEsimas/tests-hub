@@ -1,9 +1,10 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import './CameraTester.scss'
 
 export default function CameraTester() {
     const videoRef = useRef(null);
+    let VideoStream;
 
     const getVideo = () => {
         navigator.mediaDevices.getUserMedia({
@@ -11,17 +12,25 @@ export default function CameraTester() {
                 width: 1920,
                 height: 1080
             }
-        })
-            .then((stream) => {
-                let video = videoRef.current;
-                video.srcObject = stream;
-                video.play();
-            }).catch((err) => {
-                console.log(err);
-            });
+        }).then((stream) => {
+            VideoStream = stream;
+            let video = videoRef.current;
+            video.srcObject = stream;
+            video.play();
+        }).catch((err) => {
+            //don't care
+        });
     }
 
     getVideo();
+
+    useEffect(() => {
+        return () => {
+            VideoStream.getTracks().forEach(function (track) {
+                track.stop();
+            });
+        }
+    });
 
     return (
         <div className="CameraTester">
