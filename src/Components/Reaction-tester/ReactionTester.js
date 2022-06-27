@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import './ReactionTester.scss';
 
 export default function ReactionTester() {
-    let status = "ready" // ready, running, waiting, clicked
+    let status = "ready" // ready, running, active, clicked
+    let begin, end;
 
     function start() {
         if(status != "ready") return;
@@ -11,6 +12,14 @@ export default function ReactionTester() {
         status = "running";
         document.getElementsByClassName("begin")[0].classList.add("hidden");
         document.getElementsByClassName("check")[0].classList.remove("hidden");
+    }
+
+    function activate() {
+        if(status != "running") return;
+
+        status = "active";
+        document.getElementsByClassName("check")[0].classList.add("red");
+        begin = (new Date()).getMilliseconds();
     }
     
     return (
