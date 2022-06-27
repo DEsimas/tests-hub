@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import './ReactionTester.scss';
 
 export default function ReactionTester() {
@@ -22,7 +20,7 @@ export default function ReactionTester() {
 
         status = "active";
         document.getElementsByClassName("check")[0].classList.add("red");
-        begin = (new Date()).getMilliseconds();
+        begin = new Date();
     }
 
     function clicked() {
@@ -33,7 +31,7 @@ export default function ReactionTester() {
         } else if(status == "active") {
             //clicked in time
             status = "clicked";
-            end = (new Date()).getMilliseconds();
+            end = new Date();
             showStats();
         }
     }
@@ -47,6 +45,22 @@ export default function ReactionTester() {
         document.getElementsByClassName("ReactionTester-ResultWindow")[0].classList.remove("hidden");
         document.getElementsByClassName("ReactionTester-ResultWindow-InfoWindow-Text")[0].innerHTML = "Too fast 😭. Try again";
     }
+
+    function restart() {
+        if(status != "clicked") return;
+
+        status = "ready";
+        end = undefined;
+        begin = undefined;
+
+        document.getElementsByClassName("ReactionTester-ResultWindow-InfoWindow-Text")[0].innerHTML = "";
+        document.getElementsByClassName("ReactionTester-ResultWindow")[0].classList.add("hidden");
+
+        document.getElementsByClassName("check")[0].classList.remove("red");
+
+        document.getElementsByClassName("check")[0].classList.add("hidden");
+        document.getElementsByClassName("begin")[0].classList.remove("hidden");
+    }
     
     return (
         <div className="ReactionTester">
@@ -57,7 +71,7 @@ export default function ReactionTester() {
             <div className="ReactionTester-ResultWindow hidden">
                 <div className="ReactionTester-ResultWindow-InfoWindow">
                     <span className="ReactionTester-ResultWindow-InfoWindow-Text"></span>
-                    <button className="ReactionTester-ResultWindow-InfoWindow-Button" onClick={()=>{}}>OK</button>
+                    <button className="ReactionTester-ResultWindow-InfoWindow-Button" onClick={restart}>OK</button>
                 </div>
             </div>
         </div>
