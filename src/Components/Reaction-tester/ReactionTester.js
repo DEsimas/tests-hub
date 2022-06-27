@@ -43,8 +43,7 @@ export default function ReactionTester() {
     }
 
     function showTooLateMsg() {
-        document.getElementsByClassName("ReactionTester-ResultWindow")[0].classList.remove("hidden");
-        document.getElementsByClassName("ReactionTester-ResultWindow-InfoWindow-Text")[0].innerHTML = "Too fast 😭. Try again"
+        console.log("early");
     }
     
     return (
