@@ -13,7 +13,7 @@ export default function ReactionTester() {
         document.getElementsByClassName("begin")[0].classList.add("hidden");
         document.getElementsByClassName("check")[0].classList.remove("hidden");
 
-        let delay = (Math.random() * 5000) + 2000; // delay is in range [2; 7) seconds
+        let delay = (Math.random() * 3000) + 2000; // delay is in range [2; 5) seconds
         setTimeout(activate, delay);
     }
 
