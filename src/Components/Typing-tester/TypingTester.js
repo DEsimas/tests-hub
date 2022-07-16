@@ -11,7 +11,7 @@ import loading from './../../Assets/TypingTester/loading.gif';
 import './Text.scss';
 import './TypingTester.scss';
 
-const SERVER_URL = 'https://desimas-server.herokuapp.com/TypingTester';
+const SERVER_URL = 'https://desimas-server-web.herokuapp.com/TypingTester';
 let inputLength = 0;
 
 export default function TypingTester() {
