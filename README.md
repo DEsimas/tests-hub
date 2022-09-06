@@ -1,6 +1,8 @@
-# About
+# Tests-hub
 
 Compilation of little javascript apps. [Backend](https://github.com/DEsimas/desimas-server). [gh-pages deployment](https://desimas.github.io/tests-hub/#/).
+
+# Applications
 
 <ul>
     <li>Accent tester: application for checking your knowlage of russian accents, uses crypto to encrypt data from server.</li>
@@ -9,6 +11,19 @@ Compilation of little javascript apps. [Backend](https://github.com/DEsimas/desi
     <li>Reaction tester: measures reaction time</li>
 </ul>
 
-## Tecnologies
+# Preview
 
-```html, css, javascript, sass, react, react-router, npm, git, crypto```
+[Deployment on github pages](https://desimas.github.io/tests-hub/#/)
+
+# Tecnologies
+
+<ul>
+    <li>React</li>
+    <li>React-router</li>
+    <li>Sass</li>
+    <li>Crypto</li>
+</ul>
+
+# .env
+
+REACT_APP_SERVER_URL = backend url
