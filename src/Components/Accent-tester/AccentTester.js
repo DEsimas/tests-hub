@@ -1,4 +1,4 @@
-import { useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import crypto from 'crypto';
 
 import Loading from './../Loading/Loading';
@@ -8,7 +8,7 @@ import loading from './../../Assets/AccentTester/loading.gif';
 
 import './AccentTester.scss';
 
-const SERVER_URL = 'https://desimas-server-web.herokuapp.com/AccentTester';
+const SERVER_URL = process.env.REACT_APP_SERVER_URL + '/AccentTester';
 
 export default function AccentTester() {
     const [word, setWord] = useState(undefined);
@@ -23,14 +23,14 @@ export default function AccentTester() {
         return JSON.parse(decrpyted.toString());
     }
 
-    useEffect(async() => {
+    useEffect(async () => {
         const response = await fetch(SERVER_URL);
         const data = await response.json();
         const dictionary = decrypt(data);
         setWord(new Word(dictionary, setCounter));
     }, []);
-    
-    if(!word)  return <Loading loading={loading}/>
+
+    if (!word) return <Loading loading={loading} />
 
     return (
         <div className='AccentTester'>

@@ -11,7 +11,7 @@ import loading from './../../Assets/TypingTester/loading.gif';
 import './Text.scss';
 import './TypingTester.scss';
 
-const SERVER_URL = 'https://desimas-server-web.herokuapp.com/TypingTester';
+const SERVER_URL = process.env.REACT_APP_SERVER_URL + '/TypingTester';
 let inputLength = 0;
 
 export default function TypingTester() {
@@ -26,7 +26,7 @@ export default function TypingTester() {
             return;
         };
 
-        if (evt.target.value.length > inputLength+1) {
+        if (evt.target.value.length > inputLength + 1) {
             evt.target.value = inputText;
             return;
         };
@@ -128,7 +128,7 @@ export default function TypingTester() {
 
     return (
         <div className='TypingTester'>
-            <MobileWarnign/>
+            <MobileWarnign />
             <Stats time={stats.time} wpm={stats.wpm} spm={stats.spm} setText={updText} />
             <div className='TypingTester-Workplace'>
                 <div className='TypingTester-Workplace-Texts'>
