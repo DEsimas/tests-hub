@@ -13,7 +13,7 @@ Compilation of little javascript apps. [Backend](https://github.com/DEsimas/desi
 
 # Preview
 
-[Deployment on github pages](https://desimas.github.io/tests-hub/#/)
+[Deployment on github pages](https://desimas.github.io/tests-hub/#/). Since heroku ended supoort of free dynos there is no way for me to host backned. Accent tester doesn't work.
 
 # Tecnologies
 
