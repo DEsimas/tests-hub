@@ -118,8 +118,12 @@ export default function TypingTester() {
     useEffect(() => {
         async function fetchData() {
             const data = await fetch(SERVER_URL);
-            const texts = await data.json();
-            setTexts(texts.texts);
+            if (data.status == 200) {
+                setTexts([])
+            } else {
+                const texts = await data.json();
+                setTexts(texts.texts);
+            }
         }
         fetchData();
     }, []);
