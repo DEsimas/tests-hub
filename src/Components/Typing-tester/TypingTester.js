@@ -18,7 +18,7 @@ export default function TypingTester() {
     const [inputText, setInputText] = useState('');
     const [text, setText] = useState(new Text('React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications. However, React is only concerned with state management and rendering that state to the DOM, so creating React applications usually requires the use of additional libraries for routing, as well as certain client-side functionality.'));
     const [stats, setStats] = useState({});
-    const [texts, setTexts] = useState();
+    const [texts, setTexts] = useState([]);
 
     function onTextChanged(evt) {
         if (evt.target.value[evt.target.value.length - 1] === '\n') {
@@ -119,16 +119,12 @@ export default function TypingTester() {
         async function fetchData() {
             const data = await fetch(SERVER_URL);
             if (data.status == 200) {
-                setTexts([])
-            } else {
                 const texts = await data.json();
                 setTexts(texts.texts);
             }
         }
         fetchData();
     }, []);
-
-    if (!texts) return <Loading loading={loading} />
 
     return (
         <div className='TypingTester'>
