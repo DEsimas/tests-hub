@@ -8,6 +8,7 @@ import loading from './../../Assets/AccentTester/loading.gif';
 
 import './AccentTester.scss';
 import LoadingFail from './LoadingFail';
+import Dictionary from './Dictionary';
 
 const SERVER_URL = process.env.REACT_APP_SERVER_URL + '/AccentTester';
 
@@ -26,11 +27,12 @@ export default function AccentTester() {
     }
 
     useEffect(async () => {
-        const response = await fetch(SERVER_URL);
-        console.log(response)
-        if (response.status == 404) return setIsFailed(true)
-        const data = await response.json();
-        const dictionary = decrypt(data);
+        // const response = await fetch(SERVER_URL);
+        // console.log(response)
+        // if (response.status == 404) return setIsFailed(true)
+        // const data = await response.json();
+        // const dictionary = decrypt(data);
+        const dictionary = Dictionary;
         setWord(new Word(dictionary, setCounter));
     }, []);
 
@@ -41,7 +43,7 @@ export default function AccentTester() {
         <div className='AccentTester'>
             <h1 className="AccentTester-Header"> Тест на знание ударений </h1>
             {word.getJsx()}
-            <p className="AccentTester-Text">Основано на орфоэпическом словнике для ЕГЭ по Русскому языку 2022 год</p>
+            <p className="AccentTester-Text">Основано на первой колонке той хрени из тг (помните, что там не только ударения)</p>
         </div>
     );
 }
