@@ -8,18 +8,18 @@ import loading from './../../Assets/AccentTester/loading.gif';
 
 import './AccentTester.scss';
 import LoadingFail from './LoadingFail';
-import Dictionary from './Dictionary';
+import Dictionaries from './Dictionaries';
 
 const SERVER_URL = process.env.REACT_APP_SERVER_URL + '/AccentTester';
 
 export default function AccentTester() {
     const [word, setWord] = useState(undefined);
     const [counter, setCounter] = useState(0);
-    const [isFailed, setIsFailed] = useState(false)
+    const [isFailed, setIsFailed] = useState(false);
+    const [set, setSet] = useState('ЕГЭ2022');
 
     function decrypt(data) {
-        const key = data.content.slice(-32);
-        data.content = data.content.slice(0, -32);
+        const key = process.env.REACT_APP_ACCENT_TESTER_KEY;
         const decipher = crypto.createDecipheriv('aes-256-ctr', key, Buffer(data.iv, 'hex'));
         const decrpyted = Buffer.concat([decipher.update(Buffer.from(data.content, 'hex')), decipher.final()]);
 
@@ -27,14 +27,10 @@ export default function AccentTester() {
     }
 
     useEffect(async () => {
-        // const response = await fetch(SERVER_URL);
-        // console.log(response)
-        // if (response.status == 404) return setIsFailed(true)
-        // const data = await response.json();
-        // const dictionary = decrypt(data);
-        const dictionary = Dictionary;
+        const data = JSON.parse(Dictionaries[set]);
+        const dictionary = decrypt(data);
         setWord(new Word(dictionary, setCounter));
-    }, []);
+    }, [set]);
 
     if (isFailed) return <LoadingFail />
     if (!word) return <Loading loading={loading} />
