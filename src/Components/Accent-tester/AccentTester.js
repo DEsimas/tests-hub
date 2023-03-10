@@ -16,7 +16,7 @@ export default function AccentTester() {
     const [word, setWord] = useState(undefined);
     const [counter, setCounter] = useState(0);
     const [isFailed, setIsFailed] = useState(false);
-    const [set, setSet] = useState('ЕГЭ2022');
+    const [set, setSet] = useState('Бучарова1');
 
     function decrypt(data) {
         const key = process.env.REACT_APP_ACCENT_TESTER_KEY;
@@ -27,6 +27,10 @@ export default function AccentTester() {
     }
 
     useEffect(async () => {
+        const btns = document.getElementsByClassName('AccentTester-Sets-Btn');
+        for (const btn of btns)
+            if (btn.textContent == set) btn.classList.add('active');
+            else btn.classList.remove('active');
         const data = JSON.parse(Dictionaries[set]);
         const dictionary = decrypt(data);
         setWord(new Word(dictionary, setCounter));
@@ -39,7 +43,16 @@ export default function AccentTester() {
         <div className='AccentTester'>
             <h1 className="AccentTester-Header"> Тест на знание ударений </h1>
             {word.getJsx()}
-            <p className="AccentTester-Text">Основано на первой колонке той хрени из тг (помните, что там не только ударения)</p>
+            <div className='bottom'>
+                <div className='AccentTester-Sets'>
+                    {
+                        Object.keys(Dictionaries).map((key) => (
+                            <button className={`AccentTester-Sets-Btn ${key === set ? 'active' : ''}`} onClick={(e) => { setSet(key) }}>{key}</button>
+                        ))
+                    }
+                </div>
+                <p className="AccentTester-Text">Поставьте звёздочку на <a target="_blank" href='https://github.com/DEsimas/tests-hub'>гитхабе</a> 🙏</p>
+            </div>
         </div>
     );
 }

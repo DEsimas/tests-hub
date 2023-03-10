@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bona+Nova&family=Roboto+Slab&display=swap');
 
+.active {
+    font-weight: bold;
+}
+
 .AccentTester {
     position: absolute;
     top: 0;
@@ -59,7 +63,12 @@
         text-align: center;
         color: gray;
         padding-bottom: 50px;
-        font-size: 35px;
+        font-size: 24px;
+    }
+
+    &-Sets-Btn {
+        font-size: 28px;
+        margin: 10px;
     }
 
     @media screen and (min-width: 2000px) {
@@ -72,7 +81,7 @@
             &-Word {
                 font-size: 120px;
 
-                &-Fragment{
+                &-Fragment {
 
                     &-Vowel {
                         font-size: 120px;
@@ -86,7 +95,7 @@
         }
 
         &-Text {
-            font-size: 60px;
+            font-size: 32px;
         }
     }
 
@@ -100,7 +109,7 @@
             &-Word {
                 font-size: 60px;
 
-                &-Fragment{
+                &-Fragment {
 
                     &-Vowel {
                         font-size: 60px;
@@ -118,14 +127,14 @@
         }
 
         &-Text {
-            font-size: 16px;
+            font-size: 12px;
         }
     }
-    
+
     .correct {
         color: green;
     }
-    
+
     .incorrect {
         color: red;
     }
