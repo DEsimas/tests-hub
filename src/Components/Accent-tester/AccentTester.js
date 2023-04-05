@@ -16,7 +16,7 @@ export default function AccentTester() {
     const [word, setWord] = useState(undefined);
     const [counter, setCounter] = useState(0);
     const [isFailed, setIsFailed] = useState(false);
-    const [set, setSet] = useState('Бучарова2');
+    const [set, setSet] = useState('Бучарова3');
 
     function decrypt(data) {
         const key = process.env.REACT_APP_ACCENT_TESTER_KEY;
