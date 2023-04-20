@@ -10,13 +10,14 @@ import './AccentTester.scss';
 import LoadingFail from './LoadingFail';
 import Dictionaries from './Dictionaries';
 
-const SERVER_URL = process.env.REACT_APP_SERVER_URL + '/AccentTester';
+const SERVER_URL = process.env.REACT_APP_SERVER_URL + '/AccentTester/';
 
 export default function AccentTester() {
     const [word, setWord] = useState(undefined);
     const [counter, setCounter] = useState(0);
     const [isFailed, setIsFailed] = useState(false);
-    const [set, setSet] = useState('Бучарова3');
+    const [set, setSet] = useState();
+    const [sets, setSets] = useState([]);
 
     function decrypt(data) {
         const key = process.env.REACT_APP_ACCENT_TESTER_KEY;
@@ -27,12 +28,22 @@ export default function AccentTester() {
     }
 
     useEffect(async () => {
+        const data = await fetch(SERVER_URL + 'Collections');
+        setSets(await data.json());
+    }, [])
+
+    useEffect(async () => {
+        setSet(sets.at(0));
+    }, [sets])
+
+    useEffect(async () => {
+        if (!set) return
         const btns = document.getElementsByClassName('AccentTester-Sets-Btn');
         for (const btn of btns)
             if (btn.textContent == set) btn.classList.add('active');
             else btn.classList.remove('active');
-        const data = JSON.parse(Dictionaries[set]);
-        const dictionary = decrypt(data);
+        const data = await fetch(SERVER_URL + '?collection=' + set)
+        const dictionary = decrypt(await data.json());
         setWord(new Word(dictionary, setCounter));
     }, [set]);
 
@@ -46,7 +57,7 @@ export default function AccentTester() {
             <div className='bottom'>
                 <div className='AccentTester-Sets'>
                     {
-                        Object.keys(Dictionaries).map((key) => (
+                        sets.map(key => (
                             <button className={`AccentTester-Sets-Btn ${key === set ? 'active' : ''}`} onClick={(e) => { setSet(key) }}>{key}</button>
                         ))
                     }
