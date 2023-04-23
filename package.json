@@ -26,7 +26,7 @@
         "url": "https://github.com/DEsimas/tests-hub"
     },
     "scripts": {
-        "start": "webpack serve --mode development",
+        "start": "webpack serve --mode production",
         "build": "webpack --mode production"
     },
     "dependencies": {
@@ -42,6 +42,7 @@
         "css-loader": "^6.7.3",
         "file-loader": "^6.2.0",
         "gh-pages": "^3.2.3",
+        "html-webpack-plugin": "^5.5.1",
         "node-sass": "^8.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",

@@ -1,6 +1,14 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     entry: './src/index.js',
+    target: 'web',
+    mode: 'production',
+    performance: {
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+    },
     module: {
         rules: [
             {
@@ -26,15 +34,15 @@ module.exports = {
                 use: [
                     'file-loader',
                 ],
-            },
-            {
-                test: /\.(png)$/i,
-                use: [
-                    'file-loader',
-                ],
-            },
+            }
         ]
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            favicon: './public/favicon.ico'
+        })
+    ],
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js'
@@ -44,5 +52,8 @@ module.exports = {
             directory: path.resolve(__dirname, 'build'),
         },
         port: 3201,
+        historyApiFallback: true,
+        open: true,
+        hot: true
     },
 }
