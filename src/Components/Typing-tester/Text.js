@@ -1,3 +1,5 @@
+import React from "react";
+
 class Text {
     constructor(text) {
         this.text = text;
@@ -26,21 +28,21 @@ class Text {
 
     addChar(line) {
 
-        if(this.isCompleted) return;
+        if (this.isCompleted) return;
 
-        if(this.currentPosition === 0) this.start = new Date();
+        if (this.currentPosition === 0) this.start = new Date();
 
         let correctLine = "";
         let incorrectLine = "";
 
         let isError = false;
 
-        for(let i in line) {
-            if(this.text[i] === undefined) {
+        for (let i in line) {
+            if (this.text[i] === undefined) {
                 incorrectLine += "*";
                 continue;
             };
-            if(line[i] === this.text[i] && !isError) correctLine += line[i]
+            if (line[i] === this.text[i] && !isError) correctLine += line[i]
             else {
                 incorrectLine += this.text[i];
                 isError = true;
@@ -50,7 +52,7 @@ class Text {
         this.textCompleted = correctLine;
         this.textError = incorrectLine;
         this.textUncompleted = this.text.replace(this.textCompleted + this.textError.split("*")[0], "");
-        
+
         if (this.textUncompleted.length === 0 && this.textError.length === 0) { //if text is done
             this.end = new Date()
             this.isCompleted = true;

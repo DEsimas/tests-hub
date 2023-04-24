@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import React from "react";
 
-
 import tests from './Tests';
 import Test from './Test';
 
@@ -10,7 +9,7 @@ import './TestsHub.scss';
 export default function TestsHub() {
 
     useEffect(() => {
-        document.getElementsByClassName("Fallback")[0].classList.add("hidden");
+        document.getElementsByClassName("Fallback")[0]?.classList.add("hidden");
     })
 
     return (

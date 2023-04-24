@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Fallback from './Components/Fallback/Fallback';
 import TestsHub from './Components/Tests-hub/TestsHub';
@@ -16,15 +15,15 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <React.StrictMode>
-    <HashRouter>
+    <Router>
       <Fallback />
-      <Switch>
-        <Route exact path="/"><TestsHub /></Route>
-        <Route path="/AccentTester"><AccentTester /></Route>
-        <Route path="/TypingTester"><TypingTester /></Route>
-        <Route path="/ReactionTester"><ReactionTester /></Route>
-        <Route path="/CameraTester"><CameraTester /></Route>
-      </Switch>
-    </HashRouter>
+      <Routes>
+        <Route exact path="/" element={<TestsHub />} />
+        <Route path="/AccentTester" element={<AccentTester />} />
+        <Route path="/TypingTester" element={<TypingTester />} />
+        <Route path="/ReactionTester" element={<ReactionTester />} />
+        <Route path="/CameraTester" element={<CameraTester />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
