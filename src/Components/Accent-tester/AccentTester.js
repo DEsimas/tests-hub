@@ -9,7 +9,7 @@ import loading from './../../Assets/AccentTester/loading.gif';
 import './AccentTester.scss';
 import LoadingFail from './LoadingFail';
 
-const SERVER_URL = 'process.env.REACT_APP_SERVER_URL' + '/AccentTester/';
+const SERVER_URL = process.env.REACT_APP_SERVER_URL + '/AccentTester/';
 
 export default function AccentTester() {
     const [word, setWord] = useState(undefined);
@@ -19,7 +19,7 @@ export default function AccentTester() {
     const [sets, setSets] = useState([]);
 
     function decrypt(data) {
-        const key = 'process.env.REACT_APP_ACCENT_TESTER_KEY';
+        const key = process.env.REACT_APP_ACCENT_TESTER_KEY;
         const decipher = crypto.createDecipheriv('aes-256-ctr', key, Buffer(data.iv, 'hex'));
         const decrpyted = Buffer.concat([decipher.update(Buffer.from(data.content, 'hex')), decipher.final()]);
 

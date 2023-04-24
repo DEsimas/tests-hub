@@ -10,7 +10,7 @@ import MobileWarnign from './MobileWarning';
 import './Text.scss';
 import './TypingTester.scss';
 
-const SERVER_URL = 'process.env.REACT_APP_SERVER_URL' + '/TypingTester';
+const SERVER_URL = process.env.REACT_APP_SERVER_URL + '/TypingTester';
 let inputLength = 0;
 
 export default function TypingTester() {

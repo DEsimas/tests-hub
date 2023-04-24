@@ -1,6 +1,7 @@
 require('dotenv').config();
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     entry: './src/index.js',
@@ -42,6 +43,12 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
             favicon: './public/favicon.ico'
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'REACT_APP_ACCENT_TESTER_KEY': `'${process.env.REACT_APP_ACCENT_TESTER_KEY}'`,
+                'REACT_APP_SERVER_URL': `'${process.env.REACT_APP_SERVER_URL}'`
+            }
         })
     ],
     output: {
