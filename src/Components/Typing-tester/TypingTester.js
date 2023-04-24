@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react';
-import Loading from './../Loading/Loading';
+import React from "react";
+
 
 import Text from './Text';
 import Stats from './Stats';
 import Examples from './Examples';
 import MobileWarnign from './MobileWarning';
 
-import loading from './../../Assets/TypingTester/loading.gif';
-
 import './Text.scss';
 import './TypingTester.scss';
 
-const SERVER_URL = process.env.REACT_APP_SERVER_URL + '/TypingTester';
+const SERVER_URL = 'process.env.REACT_APP_SERVER_URL' + '/TypingTester';
 let inputLength = 0;
 
 export default function TypingTester() {

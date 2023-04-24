@@ -1,11 +1,13 @@
 import './ReactionTester.scss';
 
+import React from "react";
+
 export default function ReactionTester() {
     let status = "ready" // ready, running, active, clicked
     let begin, end;
 
     function start() {
-        if(status != "ready") return;
+        if (status != "ready") return;
 
         status = "running";
         document.getElementsByClassName("begin")[0].classList.add("hidden");
@@ -16,7 +18,7 @@ export default function ReactionTester() {
     }
 
     function activate() {
-        if(status != "running") return;
+        if (status != "running") return;
 
         status = "active";
         document.getElementsByClassName("check")[0].classList.add("red");
@@ -24,11 +26,11 @@ export default function ReactionTester() {
     }
 
     function clicked() {
-        if(status == "running") {
+        if (status == "running") {
             //clicked too early
             status = "clicked";
             showTooLateMsg();
-        } else if(status == "active") {
+        } else if (status == "active") {
             //clicked in time
             status = "clicked";
             end = new Date();
@@ -47,7 +49,7 @@ export default function ReactionTester() {
     }
 
     function restart() {
-        if(status != "clicked") return;
+        if (status != "clicked") return;
 
         status = "ready";
         end = undefined;
@@ -61,7 +63,7 @@ export default function ReactionTester() {
         document.getElementsByClassName("check")[0].classList.add("hidden");
         document.getElementsByClassName("begin")[0].classList.remove("hidden");
     }
-    
+
     return (
         <div className="ReactionTester">
             <div className="ReactionTester-Buttons">

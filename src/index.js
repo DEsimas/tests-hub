@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import Fallback from './Components/Fallback/Fallback';
@@ -11,19 +12,19 @@ import ReactionTester from './Components/Reaction-tester/ReactionTester';
 
 import './index.scss';
 
-ReactDOM.render(
-  <AccentTester></AccentTester>,
-  // <React.StrictMode>
-  //   <HashRouter>
-  //     <Fallback/>
-  //     <Switch>
-  //       <Route exact path="/"><TestsHub/></Route>
-  //       <Route path="/AccentTester"><AccentTester/></Route>
-  //       <Route path="/TypingTester"><TypingTester/></Route>
-  //       <Route path="/ReactionTester"><ReactionTester/></Route>
-  //       <Route path="/CameraTester"><CameraTester/></Route>
-  //     </Switch>
-  //   </HashRouter>
-  // </React.StrictMode>,
-  document.getElementById('root')
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(
+  <React.StrictMode>
+    <HashRouter>
+      <Fallback />
+      <Switch>
+        <Route exact path="/"><TestsHub /></Route>
+        <Route path="/AccentTester"><AccentTester /></Route>
+        <Route path="/TypingTester"><TypingTester /></Route>
+        <Route path="/ReactionTester"><ReactionTester /></Route>
+        <Route path="/CameraTester"><CameraTester /></Route>
+      </Switch>
+    </HashRouter>
+  </React.StrictMode>
 );

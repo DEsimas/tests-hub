@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import crypto from 'crypto';
 
 import Loading from './../Loading/Loading';
@@ -8,9 +8,8 @@ import loading from './../../Assets/AccentTester/loading.gif';
 
 import './AccentTester.scss';
 import LoadingFail from './LoadingFail';
-import Dictionaries from './Dictionaries';
 
-const SERVER_URL = process.env.REACT_APP_SERVER_URL + '/AccentTester/';
+const SERVER_URL = 'process.env.REACT_APP_SERVER_URL' + '/AccentTester/';
 
 export default function AccentTester() {
     const [word, setWord] = useState(undefined);
@@ -20,7 +19,7 @@ export default function AccentTester() {
     const [sets, setSets] = useState([]);
 
     function decrypt(data) {
-        const key = process.env.REACT_APP_ACCENT_TESTER_KEY;
+        const key = 'process.env.REACT_APP_ACCENT_TESTER_KEY';
         const decipher = crypto.createDecipheriv('aes-256-ctr', key, Buffer(data.iv, 'hex'));
         const decrpyted = Buffer.concat([decipher.update(Buffer.from(data.content, 'hex')), decipher.final()]);
 
@@ -37,14 +36,15 @@ export default function AccentTester() {
     }, [sets])
 
     useEffect(async () => {
-        if (!set) return
-        const btns = document.getElementsByClassName('AccentTester-Sets-Btn');
-        for (const btn of btns)
-            if (btn.textContent == set) btn.classList.add('active');
-            else btn.classList.remove('active');
-        const data = await fetch(SERVER_URL + '?collection=' + set)
-        const dictionary = decrypt(await data.json());
-        setWord(new Word(dictionary, setCounter));
+        if (set) {
+            const btns = document.getElementsByClassName('AccentTester-Sets-Btn');
+            for (const btn of btns)
+                if (btn.textContent == set) btn.classList.add('active');
+                else btn.classList.remove('active');
+            const data = await fetch(SERVER_URL + '?collection=' + set)
+            const dictionary = decrypt(await data.json());
+            setWord(new Word(dictionary, setCounter));
+        }
     }, [set]);
 
     if (isFailed) return <LoadingFail />

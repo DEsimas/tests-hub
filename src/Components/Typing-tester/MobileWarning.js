@@ -1,5 +1,7 @@
 import './MobileWarning.scss';
 
+import React from "react";
+
 export default function MobileWarnign() {
 
     return (

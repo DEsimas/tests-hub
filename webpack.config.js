@@ -1,3 +1,4 @@
+require('dotenv').config();
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -51,7 +52,7 @@ module.exports = {
         static: {
             directory: path.resolve(__dirname, 'build'),
         },
-        port: 3201,
+        port: process.env.PORT,
         historyApiFallback: true,
         open: true,
         hot: true
