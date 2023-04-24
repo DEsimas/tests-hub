@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Loading from './../Loading/Loading';
 import Word from './Word';
 import loading from './../../Assets/AccentTester/loading.gif';
+import bg from './../../Assets/AccentTester/bg.jpg'
 
 import './AccentTester.scss';
 
@@ -43,7 +44,7 @@ export default function AccentTester() {
     if (!word) return <Loading loading={loading} />
 
     return (
-        <div className='AccentTester'>
+        <div className='AccentTester' style={{ backgroundImage: `url(${bg})` }}>
             <h1 className="AccentTester-Header"> Тест на знание ударений </h1>
             {word.getJsx()}
             <div className='bottom'>
