@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import './CameraTester.scss'
 
 export default function CameraTester() {
+    if (!navigator.mediaDevices) return <div className='CameraTester-Warning'>Camera access error</div>
     const videoRef = useRef(null);
     let VideoStream;
 
@@ -26,7 +27,7 @@ export default function CameraTester() {
 
     useEffect(() => {
         return () => {
-            VideoStream.getTracks().forEach(function (track) {
+            VideoStream?.getTracks().forEach(function (track) {
                 track.stop();
             });
         }
