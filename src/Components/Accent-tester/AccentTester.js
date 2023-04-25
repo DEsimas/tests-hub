@@ -14,13 +14,6 @@ export default function AccentTester() {
     const [set, setSet] = useState();
     const [sets, setSets] = useState([]);
 
-    function decrypt(data) {
-        const key = process.env.REACT_APP_ACCENT_TESTER_KEY;
-        const iv = data.iv;
-        const content = data.content;
-        return [{ word: 'тЕст' }, { word: 'привЕт' }, { word: 'мИр' }];
-    }
-
     useEffect(() => {
         fetch(SERVER_URL + 'Collections')
             .then(data => data.json())
@@ -36,7 +29,7 @@ export default function AccentTester() {
             fetch(SERVER_URL + '?collection=' + set)
                 .then(data => data.json())
                 .then(dictionary =>
-                    setWord(new Word(decrypt(dictionary), setCounter))
+                    setWord(new Word(dictionary, setCounter))
                 )
         }
     }, [set]);

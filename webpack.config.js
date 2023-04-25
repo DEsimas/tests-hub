@@ -46,7 +46,6 @@ module.exports = {
         }),
         new webpack.DefinePlugin({
             'process.env': {
-                'REACT_APP_ACCENT_TESTER_KEY': `'${process.env.REACT_APP_ACCENT_TESTER_KEY}'`,
                 'REACT_APP_SERVER_URL': `'${process.env.REACT_APP_SERVER_URL}'`
             }
         })
