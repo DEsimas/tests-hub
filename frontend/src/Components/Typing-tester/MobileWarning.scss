@@ -1,0 +1,22 @@
+.TypingTester-MobileWarning {
+    display: none;
+
+    @media screen and (max-width: 769px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+
+        &-Content{
+            text-align: center;
+            font-family: 'Roboto Slab', serif;
+            font-size: 32px;
+            margin: 10px;
+        }
+    }
+}

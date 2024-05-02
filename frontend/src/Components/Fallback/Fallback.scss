@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&display=swap');
+
+.Fallback {
+    top: 10px;
+    left: 10px;
+    font-family: 'Fuzzy Bubbles', cursive;
+    position: absolute;
+    font-size: 24px;
+    z-index: 1;
+    border: black 2px solid;
+    border-radius: 15px;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+
+    &-Image {
+        width: 25px;
+    }
+}

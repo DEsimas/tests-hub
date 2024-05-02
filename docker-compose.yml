@@ -1,0 +1,16 @@
+version: "2"
+services:
+  backend:
+    image: tests-hub-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3101:3101"
+  frontend:
+    image: tests-hub-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3201:3201"

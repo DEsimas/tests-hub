@@ -1,0 +1,21 @@
+.CameraTester {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &-Video {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.CameraTester-Warning {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    font-size: 52px;
+    color: darkred;
+}

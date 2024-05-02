@@ -1,0 +1,19 @@
+.TypingTester-Workplace-Text {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    display: block;
+    border: 2px solid black;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+
+    &-Completed {
+        color: darkgray;
+    }
+
+    &-Error {
+        background-color: red;
+        color: white;
+    }
+}

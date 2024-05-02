@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&display=swap');
+.TestsHub {
+    font-family: 'Fuzzy Bubbles', cursive;
+    margin: 0 50px;
+
+    &-Header {
+        margin-top: 120px;
+        font-size: 64px;
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    &-List {
+        text-align: center;
+
+        &-Test {
+            text-decoration: none;
+            color: black;
+            vertical-align: bottom;
+            border: black solid 4px;
+            border-radius: 20px;
+            display: inline-block;
+            height: 350px;
+            width: 310px;
+            margin: 10px;
+
+            &-Image {
+                width: 280px;
+                border: black solid 2px;
+                border-radius: 5px;
+                margin-top: 10px;
+            }
+
+            &-Header {
+                margin: 10px;
+                font-size: 26px;
+            }
+
+            &-Description {
+                margin: 5px;
+                font-size: 22px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 769px) {
+        margin: 0;
+
+        &-Header {
+            margin-top: 20px;
+        }
+    }
+}

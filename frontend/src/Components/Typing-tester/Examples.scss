@@ -1,0 +1,28 @@
+.TypingTester-Workplace-Examples {
+    width: 100%;
+    margin-top: 50px;
+    display: block;
+    text-align: center;
+
+    &-ButtonShow {
+        font-size: 20px;
+    }
+
+    &-ButtonHide {
+        font-size: 20px;
+    }
+
+    &-List {
+
+        &-Example {
+            width: 100%;
+            border: none;
+            background-color: white;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            margin: 10px 0;
+            font-size: 24px;
+        }
+    }
+}

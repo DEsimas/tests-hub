@@ -1,0 +1,26 @@
+.TypingTester-Workplace-Stats {
+    position: absolute;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.582);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &-Content {
+        background-color: white;
+        border: solid 3px black;
+        border-radius: 20px;
+        margin: auto;
+        font-family: 'Roboto', sans-serif;
+        font-size: 32px;
+        padding: 30px;
+        padding-left: 60px;
+        padding-right: 60px;
+
+        &-Button {
+            width: 100%;
+            height: 30px;
+        }
+    }
+}
